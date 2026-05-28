@@ -63,6 +63,28 @@ const links = [
      bibtex    – the BibTeX entry (keep the backticks)
 */
 const publications = [
+
+{
+  title: "Dynamic Task-adaptive Meta Optimization for User Cold-Start Recommendation",
+  image: "assets/img/publications/ecai_2025.png",
+  authors: [
+    { name: "Tushar Prakash", me: true },
+    { name: "Raksha Jalan", url: "https://openreview.net/profile?id=~Raksha_Sanjay_Jalan1" },
+    { name: "Brijraj Singh", url: "https://sites.google.com/site/brijraj08" },
+    { name: "Niranjan Pedanekar", url: "https://scholar.google.com/citations?user=UksQ7SEAAAAJ&hl=en" },
+  ],
+  venue: "In Proceedings of the 28th European Conference on Artificial Intelligence (ECAI)",
+  year: 2025,
+  project: "",
+  paper: "https://ebooks.iospress.nl/doi/10.3233/FAIA250924",
+  bibtex: `@InProceedings{prakash2025ecai,
+  author    = {Tushar Prakash and R. Jalan and B. Singh and Niranjan Pedanekar},
+  title     = {Dynamic Task-adaptive Meta Optimization for User Cold-Start Recommendation},
+  booktitle = {Proceedings of the 28th European Conference on Artificial Intelligence (ECAI)},
+  year      = {2025},
+}`,
+},
+
   {
     title: "LLM-BRec: Personalizing Session-based Social Recommendation with LLM-BERT Fusion Framework",
     image: "assets/img/publications/llm_paper.png",
@@ -86,8 +108,8 @@ const publications = [
     title: "CR-SoRec: BERT driven Consistency Regularization for Social Recommendation",
     image: "assets/img/publications/CR-SoRec.png",
     authors: [
-      { name: "Tushar Prakash*", me: true },
-      { name: "Raksha Jalan*", url: "https://openreview.net/profile?id=~Raksha_Sanjay_Jalan1" },
+      { name: "Tushar Prakash", me: true },
+      { name: "Raksha Jalan", url: "https://openreview.net/profile?id=~Raksha_Sanjay_Jalan1" },
       { name: "Brijraj Singh", url: "https://sites.google.com/site/brijraj08" },
       { name: "Naoyuki Onoe", url: "https://openreview.net/profile?id=~Naoyuki_Onoe1" },
     ],
