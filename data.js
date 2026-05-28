@@ -44,7 +44,7 @@ const links = [
   { label: "Mail",     url: "mailto:tushar121prakash@gmail.com",                        icon: "far fa-envelope-open" },
   { label: "Twitter",  url: "https://twitter.com/",                                     icon: "fab fa-twitter" },
   { label: "Scholar",  url: "https://scholar.google.com/citations?user=Czcxx-oAAAAJ&hl=en", icon: "fa-solid fa-book" },
-  { label: "Github",   url: "https://github.com/theTushar-dot",                         icon: "fab fa-github" },
+  { label: "Github",   url: "https://github.com/tushar-agi",                         icon: "fab fa-github" },
   { label: "LinkedIn", url: "https://www.linkedin.com/in/tushar-dot-prakash/",          icon: "fab fa-linkedin" },
 ];
 
