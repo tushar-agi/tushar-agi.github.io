@@ -1,339 +1,131 @@
-<!doctype html>
+
+    <!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tushar Prakash — Curriculum Vitae</title>
-<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#16140f;
-    --muted:#5a564d;
-    --desk:#d7d4cc;
-    --sheet:#fffefb;
-    --link:#0b3d91;        /* academic blue */
-    --rule:#cfc9bb;
-  }
-  *{ box-sizing:border-box; }
-  html,body{ margin:0; }
-  body{
-    background:var(--desk);
-    background-image:radial-gradient(circle at 50% 0,#e3e0d8,#cbc8c0 90%);
-    color:var(--ink);
-    font-family:"Crimson Pro", Georgia, "Times New Roman", serif;
-    line-height:1.42;
-    padding:34px 14px 70px;
-  }
-  a{ color:var(--link); text-decoration:none; }
-  a:hover{ text-decoration:underline; }
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  /* the printed sheet */
-  .sheet{
-    max-width:860px; margin:0 auto;
-    background:var(--sheet);
-    padding:52px 56px 44px;
-    box-shadow:0 1px 2px rgba(0,0,0,.12), 0 26px 60px rgba(0,0,0,.30);
-    position:relative;
-    border:1px solid #ece7dc;
-  }
-  /* rotated arXiv-style identifier down the left margin */
-  .arxiv{
-    position:absolute; left:8px; top:160px;
-    transform:rotate(-90deg); transform-origin:left top;
-    font-family:"IBM Plex Mono", monospace; font-size:10.5px;
-    color:#9a9486; letter-spacing:.5px; white-space:nowrap;
-  }
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  /* title block (full width) */
-  header{ text-align:center; padding-bottom:8px; }
-  h1.title{
-    font-weight:600; font-size:33px; line-height:1.12;
-    margin:0 0 10px; letter-spacing:.2px;
-  }
-  .authors{ font-size:16px; margin:2px 0; }
-  .affil{ font-size:14px; font-style:italic; color:var(--muted); margin:2px 0; }
-  .email{ font-family:"IBM Plex Mono", monospace; font-size:12.5px; color:var(--muted); margin-top:3px; }
-  .titlerule{ border:0; border-top:1px solid var(--ink); margin:18px 0 0; }
-
-  /* two-column body */
-  .cols{
-    column-count:2; column-gap:30px; margin-top:20px;
-    text-align:justify; hyphens:auto; font-size:15.5px;
-  }
-  .cols p{ margin:0 0 9px; text-indent:1.3em; }
-  .cols p.noindent, .cols p:first-of-type{ text-indent:0; }
-
-  .spanall{ column-span:all; }
-
-  /* abstract + keywords */
-  .abstract{
-    column-span:all; text-align:justify; hyphens:auto;
-    font-size:14.5px; padding:0 26px; margin:4px 0 6px;
-  }
-  .abstract .lead{ font-weight:700; }
-  .keywords{
-    column-span:all; font-size:13.5px; padding:0 26px; margin:0 0 16px;
-  }
-  .keywords .lead{ font-style:italic; font-weight:700; }
-
-  /* section headings: centered small-caps, IEEE style */
-  h2.sec{
-    font-size:15px; font-weight:700; text-align:center;
-    font-variant:small-caps; letter-spacing:.6px;
-    margin:14px 0 7px; break-after:avoid;
-  }
-  h2.sec .n{ margin-right:.4em; }
-
-  /* contact line */
-  .contact{ text-align:center; font-size:14.5px; text-indent:0 !important; }
-  .contact a{ white-space:nowrap; }
-  .sepdot{ color:#b7b1a3; margin:0 5px; }
-
-  .toggle{ cursor:pointer; color:var(--link); font:inherit; background:none;
-    border:none; padding:0; }
-  .toggle:hover{ text-decoration:underline; }
-  .panel{ display:none; }
-  .panel.open{ display:block; }
-
-  /* publications as numbered entries with a small figure */
-  .pub{ break-inside:avoid; margin:0 0 11px; font-size:14px; line-height:1.34; text-indent:0; }
-  .pub .ref{ display:flex; gap:9px; }
-  .pub .num{ flex:0 0 auto; font-weight:600; }
-  .pub .fig{ float:right; width:74px; margin:1px 0 4px 8px; }
-  .pub .fig img{ width:74px; border:1px solid var(--rule); background:#fff; padding:2px; display:block; }
-  .pub .fig figcaption{ font-size:9.5px; color:var(--muted); text-align:center; margin-top:2px; font-style:italic; }
-  .pub .title{ font-style:italic; }
-  .pub .authors2 b{ font-variant:small-caps; letter-spacing:.3px; }
-  .pub .venue{ }
-  .pub .links{ font-size:13px; }
-  .tag{ font-size:10px; font-weight:700; letter-spacing:.4px; padding:0 4px;
-    border:1px solid; border-radius:2px; margin-left:5px; vertical-align:1.5px;
-    font-variant:normal; font-style:normal; }
-  .tag.best{ color:#7a5200; border-color:#caa24a; background:#fbf2da; }
-  .tag.new{ color:#7a1f1f; border-color:#d08c8c; background:#fbe7e7; }
-
-  pre.bibtex{
-    font-family:"IBM Plex Mono", monospace; font-size:11px; line-height:1.5;
-    background:#f6f4ee; border:1px solid var(--rule); border-radius:3px;
-    padding:9px 10px; margin:7px 0 0; overflow:auto; white-space:pre; text-indent:0;
-  }
-
-  .awards{ font-size:14.5px; }
-  .awards .lead{ font-style:italic; font-weight:700; }
-
-  .webring{ text-align:center; text-indent:0; }
-  .webring a{ font-size:18px; margin:0 4px; text-decoration:none; }
-
-  /* footer / colophon */
-  footer.colophon{
-    column-span:all; margin-top:22px; padding-top:12px;
-    border-top:1px solid var(--rule);
-    text-align:center; font-size:12.5px; color:var(--muted);
-  }
-  footer .map img{ max-width:100%; border:1px solid var(--rule); margin-top:10px; }
-  footer .stamp{ font-family:"IBM Plex Mono", monospace; font-size:11px; }
-
-  @media (max-width:640px){
-    .sheet{ padding:34px 22px; }
-    .cols{ column-count:1; }
-    .arxiv{ display:none; }
-  }
-</style>
+  <title>Tushar Prakash</title>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 </head>
 
 <body>
-<div class="sheet">
-  <div class="arxiv">arXiv:2026.0539v1&nbsp;&nbsp;[cs.IR]&nbsp;&nbsp;28 May 2026</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="row" style="margin-top: 3em;">
+                    <div class="col-sm-12" style="margin-bottom: 1em;">
+                    <h3 class="display-4" style="text-align: center;"><span style="font-weight: bold;">Tushar</span> Prakash</h3>
+                    </div>
+                    <br>
+                    <div class="col-md-10" style="">
+                        
+                <p>
+                    I am a ML researcher at Sony Research India, working on personalization and optimization.
+                Previously, I worked on domain adaptation with the  <a href="https://team.inria.fr/stars/en/team/" target="_blank">STARS Research Team</a> at <a href="https://www.inria.fr/en/inria-centre-universite-cote-azur" target="_blank">Inria Centre
+at Université Côte d’Azur</a>. I also interned at the <a href="https://www.ualberta.ca/en/engineering/electrical-computer-engineering/index.html" target="_blank">University of Alberta</a>, where I worked on adversarial robustness. I have spent a "bit" of my time at Microsoft as SDE intern, developing testbeds for 5G infrastructure.
+                    As an undergraduate student, I studied Electronics and Communication Engineering at the <a href="https://dtu.ac.in/" target="_blank"> Delhi Technological University (India)</a>.
+                </p>
+                <p>For any inquiries, feel free to reach out to me via mail!</p>
+                <p>
+		    <a href="https://mypage.github.io/cv.pdf" target="_blank" style="margin-right: 5px"><i class="fa fa-address-card fa-lg"></i> CV</a>
+                    <a href="mailto:tushar121prakash@gmail.com" style="margin-right: 5px"><i class="far fa-envelope-open fa-lg"></i> Mail</a>
+                    <a href="https://twitter.com/" target="_blank" style="margin-right: 5px"><i class="fab fa-twitter fa-lg"></i> Twitter</a>
+                    <a href="https://scholar.google.com/citations?user=Czcxx-oAAAAJ&hl=en" target="_blank" style="margin-right: 5px"><i class="fa-solid fa-book"></i> Scholar</a>
+                    <a href="https://github.com/theTushar-dot" target="_blank" style="margin-right: 5px"><i class="fab fa-github fa-lg"></i> Github</a>
+                    <a href="https://www.linkedin.com/in/tushar-dot-prakash/" target="_blank" style="margin-right: 5px"><i class="fab fa-linkedin fa-lg"></i> LinkedIn</a>
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#demo" data-toggle="collapse" style="margin-left: -6px; margin-top: -2px;"><i class="fa-solid fa-trophy"></i>Awards</button>
+                    <div id="demo" class="collapse">
+                    <span style="font-weight: bold;">Awards:</span>
 
-  <header>
-    <h1 class="title">Tushar Prakash</h1>
-    <div class="affil">Machine Learning Researcher</div>
-    <div class="affil" style="font-style:normal;">Sony Research India</div>
-    <div class="email">tushar121prakash (at) gmail (dot) com</div>
-    <hr class="titlerule">
-  </header>
-
-  <div class="cols">
-
-    <div class="abstract">
-      <span class="lead">Abstract&mdash;</span>
-      I am a ML researcher at Sony Research India, working on personalization and optimization.
-      Previously, I worked on domain adaptation with the
-      <a href="https://team.inria.fr/stars/en/team/" target="_blank">STARS Research Team</a> at
-      <a href="https://www.inria.fr/en/inria-centre-universite-cote-azur" target="_blank">Inria Centre at Universit&eacute; C&ocirc;te d&rsquo;Azur</a>.
-      I also interned at the
-      <a href="https://www.ualberta.ca/en/engineering/electrical-computer-engineering/index.html" target="_blank">University of Alberta</a>,
-      where I worked on adversarial robustness, and spent a &ldquo;bit&rdquo; of time at Microsoft as an SDE intern,
-      developing testbeds for 5G infrastructure. As an undergraduate I studied Electronics and Communication
-      Engineering at the <a href="https://dtu.ac.in/" target="_blank">Delhi Technological University, India</a>.
+                    “In 2018, I graduated at the top of my class from high school. I completed my undergraduate studies in 2023, graduating with First Division with Distinction. In 2022, I was selected for the <a href="https://www.mitacs.ca/our-programs/globalink-research-internship-students/" target="_blank">Mitacs Global Research Internship (GRI)</a> at the University of Alberta. In 2023, I was honored with the Best Paper Award for <a href="https://thetushar.tech/assets/pdf/Paper2_RecSys_Prakash.pdf" target="_blank">CR-SoRec</a> at Sony’s annual conference for my contributions to research.”
+                </div>
+                </p>
+    
+                    </div>
+                    <div class="col-md-2" style="">
+                        <img src="assets/img/profile.jpg" class="img-thumbnail" width="280px" alt="Profile picture">
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 1em;">
+                    <div class="col-sm-12" style="">
+                        <h4>Publications</h4>
+                        <div style="margin-bottom: 3em;"> <div class="row"><div class="col-sm-3"><img src="assets/img/publications/MVBN.png" class="img-fluid img-thumbnail" alt="Project image"></div><div class="col-sm-9"><a href="None" target="_blank">MVBN: Enhancing Social Recommendation with Multi-View BERT Network</a> <br><span style="font-weight: bold";>Tushar Prakash</span>, <a href="https://openreview.net/profile?id=~Raksha_Sanjay_Jalan1" target="_blank">Raksha Jalan</a>, <a href="https://openreview.net/profile?id=~Naoyuki_Onoe1" target="_blank">Naoyuki Onoe</a> <br><span style="font-style: italic;">In Proceedings of the 23th IEEE International Conference on Data Mining (ICDM)</span>, 2023 <br><a href="https://www.sonyresearchindia.com/summarizing-enhancing-social-recommendation-with-multi-view-bert-network-mvbn/" target="_blank">Project Page</a> / <a href="https://thetushar.tech/assets/pdf/Paper1_ICDM_Prakash.pdf" target="_blank">Paper</a> /<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapsetushar2023icdm" aria-expanded="false" aria-controls="collapseExample" style="margin-left: -6px; margin-top: -2px;">Expand bibtex</button><div class="collapse" id="collapsetushar2023icdm"><div class="card card-body"><pre><code>@InProceedings{tushar2023icdm, 
+	author = {Tushar Prakash and Raksha Jalan and Naoyuki Onoe}, 
+	title = {MVBN: Enhancing Social Recommendation with Multi-View BERT Network}, 
+	booktitle = {In Proceedings of the 23th IEEE International Conference on Data Mining (ICDM)}, 
+	year = {2023}, 
+}</pre></code></div></div> </div> </div> </div><div style="margin-bottom: 3em;"> <div class="row"><div class="col-sm-3"><img src="assets/img/publications/CR-SoRec.png" class="img-fluid img-thumbnail" alt="Project image"></div><div class="col-sm-9"><a href="None" target="_blank">CR-SoRec: BERT driven Consistency Regularization for Social Recommendation</a> <br><span style="font-weight: bold";>Tushar Prakash*</span>, <a href="https://openreview.net/profile?id=~Raksha_Sanjay_Jalan1" target="_blank">Raksha Jalan*</a>, <a href="https://sites.google.com/site/brijraj08" target="_blank">Brijraj Singh</a>, <a href="https://openreview.net/profile?id=~Naoyuki_Onoe1" target="_blank">Naoyuki Onoe</a> <br><span style="font-style: italic;">In Proceedings of the 17th ACM Conference on Recommender Systems (RecSys)</span>, 2023 <br><a href="https://www.sonyresearchindia.com/decoding-cr-sorec-bert-driven-consistency-regularization-for-social-recommendation/" target="_blank">Project Page</a> / <a href="https://thetushar.tech/assets/pdf/Paper2_RecSys_Prakash.pdf" target="_blank">Paper</a> /<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapsetushar2023recsys" aria-expanded="false" aria-controls="collapseExample" style="margin-left: -6px; margin-top: -2px;">Expand bibtex</button><div class="collapse" id="collapsetushar2023recsys"><div class="card card-body"><pre><code>@InProceedings{tushar2023recsys, 
+	author = {Tushar Prakash and Raksha Jalan and Brijraj Singh and Naoyuki Onoe}, 
+	title = {CR-SoRec: BERT driven Consistency Regularization for Social Recommendation}, 
+	booktitle = {In Proceedings of the 17th ACM Conference on Recommender Systems (RecSys)}, 
+	year = {2023}, 
+}</pre></code></div></div> </div> </div> </div><div style="margin-bottom: 3em;"> <div class="row"><div class="col-sm-3"><img src="assets/img/publications/llm_paper.png" class="img-fluid img-thumbnail" alt="Project image"></div><div class="col-sm-9"><a href="None" target="_blank">LLM-BRec: Personalizing Session-based Social Recommendation with LLM-BERT Fusion Framework</a> <br><a href="https://openreview.net/profile?id=~Raksha_Sanjay_Jalan1" target="_blank">Raksha Jalan*</a>, <span style="font-weight: bold";>Tushar Prakash*</span>, <a href="https://scholar.google.com/citations?user=UksQ7SEAAAAJ&hl=en" target="_blank">Niranjan Pedanekar</a> <br><span style="font-style: italic;">In Proceedings of Gen-IR Workshop, 47th ACM SIGIR Conference on Research and Development in Information Retrieval</span>, 2024 <br><a href="https://www.sonyresearchindia.com/summarizing-llm-brec-personalizing-session-based-social-recommendation-with-llm-bert-fusion-framework/" target="_blank">Project Page</a> / <a href="https://openreview.net/pdf?id=gwHVlTNKsG" target="_blank">Paper</a> /<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapsejalan2024sigir" aria-expanded="false" aria-controls="collapseExample" style="margin-left: -6px; margin-top: -2px;">Expand bibtex</button><div class="collapse" id="collapsejalan2024sigir"><div class="card card-body"><pre><code>@InProceedings{jalan2024sigir, 
+	author = {Raksha Jalan and Tushar Prakash and Niranjan Pedanekar}, 
+	title = {LLM-BRec: Personalizing Session-based Social Recommendation with LLM-BERT Fusion Framework}, 
+	booktitle = {In Proceedings of Gen-IR Workshop, 47th ACM SIGIR Conference on Research and Development in Information Retrieval}, 
+	year = {2024}, 
+}</pre></code></div></div> </div> </div> </div><div style="margin-bottom: 3em;"> <div class="row"><div class="col-sm-3"><img src="assets/img/publications/mta.png" class="img-fluid img-thumbnail" alt="Project image"></div><div class="col-sm-9"><a href="None" target="_blank">Unsupervised domain alignment of fingerprint denoising models using pseudo annotations</a> <br><a href="https://www.indujoshi.in/" target="_blank">Indu Joshi</a>, <span style="font-weight: bold";>Tushar Prakash</span>, <a href="https://sites.google.com/view/rohitkumar-dtu" target="_blank">Rohit Kumar</a>, <a href="https://www-sop.inria.fr/members/Antitza.Dantcheva/" target="_blank">Antitza Dantcheva</a>, <a href="https://www.cse.iitd.ac.in/~sumantra/" target="_blank">Sumantra Roy</a>, <a href="https://www.cse.iitd.ac.in/~pkalra/" target="_blank">Prem Kalra</a> <br><span style="font-style: italic;">In Springer's Multimedia Tools and Applications, vol. 83, pp. 38 167–38 192</span>, 2023 <br><a href="None" target="_blank">Project Page</a> / <a href="https://thetushar.tech/assets/pdf/Paper3_MTA_Prakash.pdf" target="_blank">Paper</a> /<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseJoshi2024mta" aria-expanded="false" aria-controls="collapseExample" style="margin-left: -6px; margin-top: -2px;">Expand bibtex</button><div class="collapse" id="collapseJoshi2024mta"><div class="card card-body"><pre><code>@InProceedings{Joshi2024mta, 
+	author = {Indu Joshi and Tushar Prakash and Rohit Kumar and Antitza Dantcheva and Sumantra Roy and Prem Kalra}, 
+	title = {Unsupervised domain alignment of fingerprint denoising models using pseudo annotations}, 
+	booktitle = {In Springer's Multimedia Tools and Applications, vol. 83, pp. 38 167–38 192}, 
+	year = {2023}, 
+}</pre></code></div></div> </div> </div> </div><div style="margin-bottom: 3em;"> <div class="row"><div class="col-sm-3"><img src="assets/img/publications/ieee_letters.png" class="img-fluid img-thumbnail" alt="Project image"></div><div class="col-sm-9"><a href="None" target="_blank">Context-Aware Restoration of Noisy Fingerprints</a> <br><a href="https://www.indujoshi.in/" target="_blank">Indu Joshi</a>, <span style="font-weight: bold";>Tushar Prakash</span>, <a href="https://sites.google.com/view/rohitkumar-dtu" target="_blank">Rohit Kumar</a>, B. Jaiswal, <a href="https://www-sop.inria.fr/members/Antitza.Dantcheva/" target="_blank">Antitza Dantcheva</a>, <a href="https://www.cse.iitd.ac.in/~sumantra/" target="_blank">Sumantra Roy</a>, <a href="https://www.cse.iitd.ac.in/~pkalra/" target="_blank">Prem Kalra</a> <br><span style="font-style: italic;">In IEEE Sensors Letters, vol. 6, pp. 101–104</span>, 2022 <br><a href="None" target="_blank">Project Page</a> / <a href="https://thetushar.tech/assets/pdf/Paper4_IEEE_Prakash.pdf" target="_blank">Paper</a> /<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseJoshi2024ieee" aria-expanded="false" aria-controls="collapseExample" style="margin-left: -6px; margin-top: -2px;">Expand bibtex</button><div class="collapse" id="collapseJoshi2024ieee"><div class="card card-body"><pre><code>@InProceedings{Joshi2024ieee, 
+	author = {Indu Joshi and Tushar Prakash and Rohit Kumar and B. Jaiswal and Antitza Dantcheva and Sumantra Roy and Prem Kalra}, 
+	title = {Context-Aware Restoration of Noisy Fingerprints}, 
+	booktitle = {In IEEE Sensors Letters, vol. 6, pp. 101–104}, 
+	year = {2022}, 
+}</pre></code></div></div> </div> </div> </div><div style="margin-bottom: 3em;"> <div class="row"><div class="col-sm-3"><img src="assets/img/publications/soli.png" class="img-fluid img-thumbnail" alt="Project image"></div><div class="col-sm-9"><a href="None" target="_blank">Leveraging Explainable Artificial Intelligence for Understanding the Effect of Model Capacity on Training Dataset Size</a> <br><span style="font-weight: bold";>Tushar Prakash</span>, <a href="https://scholar.google.com/citations?user=LXSpE74AAAAJ&hl=en" target="_blank">Tashvik Dhamija</a>, <a href="https://sites.google.com/view/rohitkumar-dtu" target="_blank">Rohit Kumar</a>, <a href="https://www.dtu.ac.in/Web/Departments/Electronics/faculty/jpanda.php" target="_blank">Jeebananda Panda</a> <br><span style="font-style: italic;">In Proceedings of the 17th IEEE International Conference on Service Operations and Logistics, and Informatics (SOLI)</span>, 2022 <br><a href="None" target="_blank">Project Page</a> / <a href="https://thetushar.tech/assets/pdf/Engineering_major_project_paper.pdf" target="_blank">Paper</a> /<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapsetushar2024soli" aria-expanded="false" aria-controls="collapseExample" style="margin-left: -6px; margin-top: -2px;">Expand bibtex</button><div class="collapse" id="collapsetushar2024soli"><div class="card card-body"><pre><code>@InProceedings{tushar2024soli, 
+	author = {Tushar Prakash and Tashvik Dhamija and Rohit Kumar and Jeebananda Panda}, 
+	title = {Leveraging Explainable Artificial Intelligence for Understanding the Effect of Model Capacity on Training Dataset Size}, 
+	booktitle = {In Proceedings of the 17th IEEE International Conference on Service Operations and Logistics, and Informatics (SOLI)}, 
+	year = {2022}, 
+}</pre></code></div></div> </div> </div> </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 3em; margin-bottom: 1em;">
+                    
+            <div class="col-sm-12" style="">
+                <h4>Homepage Template</h4>
+                <p>
+                    Feel free to use this website as a template! It is fully responsive and very easy to use and maintain as it uses a python script that crawls your bib files to automatically add the papers and talks. If you find it helpful, please add a link to my website - I will also add a link to yours (if you want). <a href="https://github.com/theTushar-dot/my_webpage" target="_blank">Checkout the github repository for instructions on how to use it</a>. <br>
+                    <a href="https://kashyap7x.github.io/" target="_blank">&#9883;</a>
+                    <a href="https://kait0.github.io/" target="_blank">&#9883;</a>
+                    <a href="https://m-niemeyer.github.io/" target="_blank">&#9883;</a>
+                </p>
+                <div class="text-center mt-4">
+                    <a href="https://mapmyvisitors.com/web/1bx2s" title="Visit tracker">
+                        <img src="https://mapmyvisitors.com/map.png?d=NK3zpad2ZF7RCQSI5F8vntYXfiLY9OanpFun4yWULZ0&cl=ffffff" alt="Visitor map" />
+                    </a>
+                </div>
+            </div>
+    
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div?
     </div>
 
-    <div class="keywords">
-      <span class="lead">Index Terms&mdash;</span>
-      recommender systems, personalization, optimization, domain adaptation, BERT, adversarial robustness.
-    </div>
-
-    <h2 class="sec"><span class="n">I.</span>Contact &amp; Links</h2>
-    <p class="contact">
-      <a href="https://mypage.github.io/cv.pdf" target="_blank">CV</a><span class="sepdot">&middot;</span>
-      <a href="mailto:tushar121prakash@gmail.com">Email</a><span class="sepdot">&middot;</span>
-      <a href="https://scholar.google.com/citations?user=Czcxx-oAAAAJ&amp;hl=en" target="_blank">Google&nbsp;Scholar</a><span class="sepdot">&middot;</span>
-      <a href="https://github.com/theTushar-dot" target="_blank">GitHub</a><span class="sepdot">&middot;</span>
-      <a href="https://www.linkedin.com/in/tushar-dot-prakash/" target="_blank">LinkedIn</a><span class="sepdot">&middot;</span>
-      <a href="https://twitter.com/" target="_blank">Twitter</a>
-    </p>
-
-    <h2 class="sec"><span class="n">II.</span>Selected Publications</h2>
-
-    <div class="pub">
-      <figure class="fig"><img src="assets/img/publications/MVBN.png" alt="MVBN"><figcaption>Fig. 1</figcaption></figure>
-      <div class="ref"><span class="num">[1]</span><div>
-        <span class="title"><a href="https://thetushar.tech/assets/pdf/Paper1_ICDM_Prakash.pdf" target="_blank">MVBN: Enhancing Social Recommendation with Multi-View BERT Network</a></span>.
-        <span class="authors2"><b>T. Prakash</b>, R. Jalan, N. Onoe</span>.
-        <span class="venue">Proc. 23rd IEEE Int. Conf. on Data Mining (ICDM), 2023.</span>
-        <span class="links">[<a href="https://www.sonyresearchindia.com/summarizing-enhancing-social-recommendation-with-multi-view-bert-network-mvbn/" target="_blank">project</a>] [<a href="https://thetushar.tech/assets/pdf/Paper1_ICDM_Prakash.pdf" target="_blank">pdf</a>] [<button class="toggle" data-target="bib1">bibtex</button>]</span>
-        <pre class="bibtex panel" id="bib1">@inproceedings{tushar2023icdm,
-  author    = {Tushar Prakash and Raksha Jalan and Naoyuki Onoe},
-  title     = {MVBN: Enhancing Social Recommendation
-               with Multi-View BERT Network},
-  booktitle = {Proc. 23rd IEEE ICDM},
-  year      = {2023}}</pre>
-      </div></div>
-    </div>
-
-    <div class="pub">
-      <figure class="fig"><img src="assets/img/publications/CR-SoRec.png" alt="CR-SoRec"><figcaption>Fig. 2</figcaption></figure>
-      <div class="ref"><span class="num">[2]</span><div>
-        <span class="title"><a href="https://thetushar.tech/assets/pdf/Paper2_RecSys_Prakash.pdf" target="_blank">CR-SoRec: BERT driven Consistency Regularization for Social Recommendation</a></span><span class="tag best">BEST PAPER</span>.
-        <span class="authors2"><b>T. Prakash*</b>, R. Jalan*, B. Singh, N. Onoe</span>.
-        <span class="venue">Proc. 17th ACM Conf. on Recommender Systems (RecSys), 2023.</span>
-        <span class="links">[<a href="https://www.sonyresearchindia.com/decoding-cr-sorec-bert-driven-consistency-regularization-for-social-recommendation/" target="_blank">project</a>] [<a href="https://thetushar.tech/assets/pdf/Paper2_RecSys_Prakash.pdf" target="_blank">pdf</a>] [<button class="toggle" data-target="bib2">bibtex</button>]</span>
-        <pre class="bibtex panel" id="bib2">@inproceedings{tushar2023recsys,
-  author    = {Tushar Prakash and Raksha Jalan
-               and Brijraj Singh and Naoyuki Onoe},
-  title     = {CR-SoRec: BERT driven Consistency
-               Regularization for Social Recommendation},
-  booktitle = {Proc. 17th ACM RecSys},
-  year      = {2023}}</pre>
-      </div></div>
-    </div>
-
-    <div class="pub">
-      <figure class="fig"><img src="assets/img/publications/llm_paper.png" alt="LLM-BRec"><figcaption>Fig. 3</figcaption></figure>
-      <div class="ref"><span class="num">[3]</span><div>
-        <span class="title"><a href="https://openreview.net/pdf?id=gwHVlTNKsG" target="_blank">LLM-BRec: Personalizing Session-based Social Recommendation with LLM-BERT Fusion Framework</a></span><span class="tag new">NEW</span>.
-        <span class="authors2">R. Jalan*, <b>T. Prakash*</b>, N. Pedanekar</span>.
-        <span class="venue">Gen-IR Workshop, 47th ACM SIGIR, 2024.</span>
-        <span class="links">[<a href="https://www.sonyresearchindia.com/summarizing-llm-brec-personalizing-session-based-social-recommendation-with-llm-bert-fusion-framework/" target="_blank">project</a>] [<a href="https://openreview.net/pdf?id=gwHVlTNKsG" target="_blank">pdf</a>] [<button class="toggle" data-target="bib3">bibtex</button>]</span>
-        <pre class="bibtex panel" id="bib3">@inproceedings{jalan2024sigir,
-  author    = {Raksha Jalan and Tushar Prakash
-               and Niranjan Pedanekar},
-  title     = {LLM-BRec: Personalizing Session-based Social
-               Recommendation with LLM-BERT Fusion Framework},
-  booktitle = {Gen-IR Workshop, 47th ACM SIGIR},
-  year      = {2024}}</pre>
-      </div></div>
-    </div>
-
-    <div class="pub">
-      <figure class="fig"><img src="assets/img/publications/mta.png" alt="Fingerprint denoising"><figcaption>Fig. 4</figcaption></figure>
-      <div class="ref"><span class="num">[4]</span><div>
-        <span class="title"><a href="https://thetushar.tech/assets/pdf/Paper3_MTA_Prakash.pdf" target="_blank">Unsupervised domain alignment of fingerprint denoising models using pseudo annotations</a></span>.
-        <span class="authors2">I. Joshi, <b>T. Prakash</b>, R. Kumar, A. Dantcheva, S. Roy, P. Kalra</span>.
-        <span class="venue">Springer Multimedia Tools and Applications, vol. 83, pp. 38167&ndash;38192, 2023.</span>
-        <span class="links">[<a href="https://thetushar.tech/assets/pdf/Paper3_MTA_Prakash.pdf" target="_blank">pdf</a>] [<button class="toggle" data-target="bib4">bibtex</button>]</span>
-        <pre class="bibtex panel" id="bib4">@article{Joshi2024mta,
-  author  = {Indu Joshi and Tushar Prakash and Rohit Kumar
-             and Antitza Dantcheva and Sumantra Roy
-             and Prem Kalra},
-  title   = {Unsupervised domain alignment of fingerprint
-             denoising models using pseudo annotations},
-  journal = {Multimedia Tools and Applications},
-  volume  = {83}, pages = {38167--38192}, year = {2023}}</pre>
-      </div></div>
-    </div>
-
-    <div class="pub">
-      <figure class="fig"><img src="assets/img/publications/ieee_letters.png" alt="Context-aware restoration"><figcaption>Fig. 5</figcaption></figure>
-      <div class="ref"><span class="num">[5]</span><div>
-        <span class="title"><a href="https://thetushar.tech/assets/pdf/Paper4_IEEE_Prakash.pdf" target="_blank">Context-Aware Restoration of Noisy Fingerprints</a></span>.
-        <span class="authors2">I. Joshi, <b>T. Prakash</b>, R. Kumar, B. Jaiswal, A. Dantcheva, S. Roy, P. Kalra</span>.
-        <span class="venue">IEEE Sensors Letters, vol. 6, pp. 101&ndash;104, 2022.</span>
-        <span class="links">[<a href="https://thetushar.tech/assets/pdf/Paper4_IEEE_Prakash.pdf" target="_blank">pdf</a>] [<button class="toggle" data-target="bib5">bibtex</button>]</span>
-        <pre class="bibtex panel" id="bib5">@article{Joshi2024ieee,
-  author  = {Indu Joshi and Tushar Prakash and Rohit Kumar
-             and B. Jaiswal and Antitza Dantcheva
-             and Sumantra Roy and Prem Kalra},
-  title   = {Context-Aware Restoration of Noisy Fingerprints},
-  journal = {IEEE Sensors Letters},
-  volume  = {6}, pages = {101--104}, year = {2022}}</pre>
-      </div></div>
-    </div>
-
-    <div class="pub">
-      <figure class="fig"><img src="assets/img/publications/soli.png" alt="Explainable AI"><figcaption>Fig. 6</figcaption></figure>
-      <div class="ref"><span class="num">[6]</span><div>
-        <span class="title"><a href="https://thetushar.tech/assets/pdf/Engineering_major_project_paper.pdf" target="_blank">Leveraging Explainable Artificial Intelligence for Understanding the Effect of Model Capacity on Training Dataset Size</a></span>.
-        <span class="authors2"><b>T. Prakash</b>, T. Dhamija, R. Kumar, J. Panda</span>.
-        <span class="venue">Proc. 17th IEEE Int. Conf. on Service Operations and Logistics, and Informatics (SOLI), 2022.</span>
-        <span class="links">[<a href="https://thetushar.tech/assets/pdf/Engineering_major_project_paper.pdf" target="_blank">pdf</a>] [<button class="toggle" data-target="bib6">bibtex</button>]</span>
-        <pre class="bibtex panel" id="bib6">@inproceedings{tushar2024soli,
-  author    = {Tushar Prakash and Tashvik Dhamija
-               and Rohit Kumar and Jeebananda Panda},
-  title     = {Leveraging Explainable AI for Understanding
-               the Effect of Model Capacity on
-               Training Dataset Size},
-  booktitle = {Proc. 17th IEEE SOLI},
-  year      = {2022}}</pre>
-      </div></div>
-    </div>
-
-    <h2 class="sec"><span class="n">III.</span>Awards</h2>
-    <p class="awards">
-      In 2018, I graduated at the top of my class from high school. I completed my undergraduate studies in 2023,
-      graduating with First Division with Distinction. In 2022, I was selected for the
-      <a href="https://www.mitacs.ca/our-programs/globalink-research-internship-students/" target="_blank">Mitacs Global Research Internship (GRI)</a>
-      at the University of Alberta. In 2023, I received the Best Paper Award for
-      <a href="https://thetushar.tech/assets/pdf/Paper2_RecSys_Prakash.pdf" target="_blank">CR-SoRec</a>
-      at Sony&rsquo;s annual conference.
-    </p>
-
-    <h2 class="sec"><span class="n">IV.</span>Homepage Template</h2>
-    <p class="noindent">
-      Feel free to use this website as a template. It is fully responsive and easy to maintain, using a python
-      script that crawls your <span style="font-family:'IBM Plex Mono',monospace;font-size:.9em;">.bib</span>
-      files to auto-add papers and talks. If you find it helpful, please add a link to my website and I&rsquo;ll
-      add a link to yours. <a href="https://github.com/theTushar-dot/my_webpage" target="_blank">See the repository for instructions</a>.
-    </p>
-    <p class="webring">
-      <a href="https://kashyap7x.github.io/" target="_blank" title="webring">&#9883;</a>
-      <a href="https://kait0.github.io/" target="_blank" title="webring">&#9883;</a>
-      <a href="https://m-niemeyer.github.io/" target="_blank" title="webring">&#9883;</a>
-    </p>
-
-    <footer class="colophon">
-      <div class="stamp">Manuscript hosted on GitHub Pages &middot; last revised May 2026 &middot; visitors logged: 0x0539</div>
-      <div class="map">
-        <a href="https://mapmyvisitors.com/web/1bx2s" title="Visit tracker" target="_blank">
-          <img src="https://mapmyvisitors.com/map.png?d=NK3zpad2ZF7RCQSI5F8vntYXfiLY9OanpFun4yWULZ0&amp;cl=ffffff" alt="Visitor map">
-        </a>
-      </div>
-      <div style="margin-top:8px;">&copy; 2025 Tushar Prakash. All rights reserved.</div>
-    </footer>
-
-  </div>
-</div>
-
-<script>
-  document.querySelectorAll('.toggle').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var el = document.getElementById(btn.getAttribute('data-target'));
-      if(el){ el.classList.toggle('open'); }
-    });
-  });
-</script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
 </body>
+
 </html>
+    
