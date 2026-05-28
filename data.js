@@ -12,7 +12,7 @@ const profile = {
   lastName:  "Prakash",
   photo:     "assets/img/profile.jpg",
 
-  researchInterestsHtml: "Self-Supervised Learning, Diffusion, Flow Matching, and Adversial Learning",
+  researchInterestsHtml: "Self-Supervised Learning, Diffusion, Flow Matching, Machine Unlearning and Adversial Learning",
   // Your intro. You can use normal HTML (links, <b>, etc.) inside the backticks.
   bioHtml: `
     I am a Machine Learning researcher at Sony Research India, working on Recommendation Systems and Generative Models. Previously, I worked on domain adaptation with the
