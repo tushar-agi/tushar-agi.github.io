@@ -67,8 +67,8 @@ const publications = [
     title: "LLM-BRec: Personalizing Session-based Social Recommendation with LLM-BERT Fusion Framework",
     image: "assets/img/publications/llm_paper.png",
     authors: [
-      { name: "Raksha Jalan*", url: "https://openreview.net/profile?id=~Raksha_Sanjay_Jalan1" },
-      { name: "Tushar Prakash*", me: true },
+      { name: "Raksha Jalan", url: "https://openreview.net/profile?id=~Raksha_Sanjay_Jalan1" },
+      { name: "Tushar Prakash", me: true },
       { name: "Niranjan Pedanekar", url: "https://scholar.google.com/citations?user=UksQ7SEAAAAJ&hl=en" },
     ],
     venue: "In Proceedings of Gen-IR Workshop, 47th ACM SIGIR Conference on Research and Development in Information Retrieval",
