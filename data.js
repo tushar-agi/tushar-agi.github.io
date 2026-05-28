@@ -72,7 +72,7 @@ const publications = [
     { name: "Niranjan Pedanekar", url: "https://scholar.google.com/citations?user=UksQ7SEAAAAJ&hl=en" },
     { name: "N. Chaturvedi" },
   ],
-  venue: "In Proceedings of the International Conference on Machine Learning (ICML)",
+  venue: "In Proceedings of the International Conference on Machine Learning (<strong>ICML</strong>)",
   year: 2026,
   project: "",
   paper: "",
