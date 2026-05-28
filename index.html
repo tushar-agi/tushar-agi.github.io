@@ -40,6 +40,7 @@
           <br>
           <div class="col-md-10">
             <p id="bio"></p>
+            <p id="interests"></p>
             <p id="contact-note"></p>
             <p class="profile-links" id="profile-links"></p>
           </div>
@@ -89,6 +90,9 @@
       document.getElementById("site-name").innerHTML =
         '<span style="font-weight:bold;">' + esc(profile.firstName) + "</span> " + esc(profile.lastName);
       document.getElementById("bio").innerHTML = profile.bioHtml;
+      if (profile.researchInterestsHtml) {
+        document.getElementById("interests").innerHTML =
+        '<b>Research Interests:</b> ' + profile.researchInterestsHtml;}
       document.getElementById("contact-note").textContent = profile.contactNote || "";
       document.getElementById("profile-photo").src = profile.photo;
 
