@@ -14,8 +14,7 @@ const profile = {
 
   // Your intro. You can use normal HTML (links, <b>, etc.) inside the backticks.
   bioHtml: `
-    I am a ML researcher at Sony Research India, working on personalization and
-    optimization. Previously, I worked on domain adaptation with the
+    I am a Machine Learning researcher at Sony Research India, working on recommendation systems and multimodal representation learning. Previously, I worked on domain adaptation with the
     <a href="https://team.inria.fr/stars/en/team/" target="_blank">STARS Research Team</a>
     at <a href="https://www.inria.fr/en/inria-centre-universite-cote-azur" target="_blank">Inria Centre at Universit&eacute; C&ocirc;te d&rsquo;Azur</a>.
     I also interned at the
