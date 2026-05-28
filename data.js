@@ -73,7 +73,6 @@ const publications = [
     ],
     venue: "In Proceedings of Gen-IR Workshop, 47th ACM SIGIR Conference on Research and Development in Information Retrieval",
     year: 2024,
-    isNew: false,
     project: "https://www.sonyresearchindia.com/summarizing-llm-brec-personalizing-session-based-social-recommendation-with-llm-bert-fusion-framework/",
     paper: "https://openreview.net/pdf?id=gwHVlTNKsG",
     bibtex: `@InProceedings{jalan2024sigir,
