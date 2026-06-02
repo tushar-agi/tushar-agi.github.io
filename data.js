@@ -12,7 +12,7 @@ const profile = {
   lastName:  "Prakash",
   photo:     "assets/img/profile.jpg",
 
-  researchInterestsHtml: "Self-Supervised Learning, Diffusion, Flow Matching, Machine Unlearning and Adversial Learning",
+  researchInterestsHtml: "Self-supervised learning, multimodal representation learning, discrete representation learning, diffusion and flow matching, preference alignment, recommendation and personalization, machine unlearning, adversarial robustness",
   // Your intro. You can use normal HTML (links, <b>, etc.) inside the backticks.
   bioHtml: `
     I am a Machine Learning researcher at Sony Research India, working on Recommendation Systems and Generative Models. Previously, I worked on domain adaptation with the
@@ -40,7 +40,7 @@ const profile = {
 /* Profile links. `icon` uses Font Awesome class names.
    Add/remove/reorder freely — they render in this order. */
 const links = [
-  { label: "CV",       url: "https://tushar-agi.github.io/assets/pdf",                          icon: "fa fa-address-card" },
+  { label: "CV",       url: "https://tushar-agi.github.io/assets/pdf/CV_Tushar_Prakash_updated.pdf",                          icon: "fa fa-address-card" },
   { label: "Mail",     url: "mailto:tushar121prakash@gmail.com",                        icon: "far fa-envelope-open" },
   { label: "Twitter",  url: "https://twitter.com/",                                     icon: "fab fa-twitter" },
   { label: "Scholar",  url: "https://scholar.google.com/citations?user=Czcxx-oAAAAJ&hl=en", icon: "fa-solid fa-book" },
@@ -75,7 +75,7 @@ const publications = [
   venue: "In Proceedings of the International Conference on Machine Learning (<strong>ICML</strong>)",
   year: 2026,
   project: "",
-  paper: "",
+  paper: "https://drive.google.com/file/d/1sPP7UyiUuBFPu2gS8ttOmWIg4SSOMStX/view",
   bibtex: `@InProceedings{prakash2026icml,
   author    = {Tushar Prakash and B. Singh and Niranjan Pedanekar and N. Chaturvedi},
   title     = {Obliviate: Efficient Unlearning in Recommender Systems},
