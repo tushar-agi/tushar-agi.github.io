@@ -12,7 +12,7 @@ const profile = {
   lastName:  "Prakash",
   photo:     "assets/img/profile.jpg",
 
-  researchInterestsHtml: "Self-supervised learning, multimodal representation learning, discrete representation learning, diffusion and flow matching, preference alignment, recommendation and personalization, machine unlearning, adversarial robustness",
+  researchInterestsHtml: "I'm broadly interested in generative foundation models that can both understand and generate across different modalities. A lot of my work has focused on multimodal representation learning and generative modeling with diffusion and flow matching, and more recently on how to align large generative models to what people actually want using reinforcement learning and reward modeling. I'm also drawn to discrete representation learning and semantic tokenization as a way to build foundation models for domains that don't usually have them — representing media, items, and users in a single shared space. Running underneath all of this is a concern I keep coming back to: making these models robust and trustworthy, whether that means adversarial robustness, the ability to unlearn data, or simply training them efficiently at scale.",
   // Your intro. You can use normal HTML (links, <b>, etc.) inside the backticks.
   bioHtml: `
     I am a Machine Learning researcher at Sony Research India, working on Recommendation Systems and Generative Models. Previously, I worked on domain adaptation with the
