@@ -42,7 +42,7 @@ const profile = {
 /* Profile links. `icon` uses Font Awesome class names.
    Add/remove/reorder freely — they render in this order. */
 const links = [
-  { label: "CV",       url: "https://tushar-agi.github.io/assets/pdf/CV_Tushar_Prakash_updated.pdf",                          icon: "fa fa-address-card" },
+  { label: "CV",       url: "https://tushar-agi.github.io/assets/pdf/CV_Tushar_Prakash.pdf",                          icon: "fa fa-address-card" },
   { label: "Mail",     url: "mailto:tushar121prakash@gmail.com",                        icon: "far fa-envelope-open" },
   { label: "Twitter",  url: "https://twitter.com/",                                     icon: "fab fa-twitter" },
   { label: "Scholar",  url: "https://scholar.google.com/citations?user=Czcxx-oAAAAJ&hl=en", icon: "fa-solid fa-book" },
