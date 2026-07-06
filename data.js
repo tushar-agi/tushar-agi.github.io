@@ -77,7 +77,7 @@ const publications = [
   venue: "In Proceedings of the International Conference on Machine Learning (<strong>ICML</strong>)",
   year: 2026,
   project: "",
-  paper: "https://drive.google.com/file/d/1sPP7UyiUuBFPu2gS8ttOmWIg4SSOMStX/view",
+  paper: "assets/pdf/prakash_obliviate_icml2026.pdf",
   bibtex: `@InProceedings{prakash2026icml,
   author    = {Tushar Prakash and B. Singh and Niranjan Pedanekar and N. Chaturvedi},
   title     = {Obliviate: Efficient Unlearning in Recommender Systems},
